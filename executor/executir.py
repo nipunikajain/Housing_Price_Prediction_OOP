@@ -2,6 +2,7 @@ from imports import *
 from info.info import Information
 from dataloader.loader import Pre_processing
 from processor.processor import Preprocessor
+from model.model import ML
 
 
 class HouseObjectOriented:
@@ -28,8 +29,8 @@ class HouseObjectOriented:
         # properties
         self.ntrain = train.shape[0]
         self.testID = test.reset_index().drop('index', axis=1)['Id']
-        self.y_train = train['SalePrice'].apply(lambda x: np.log1p(x))
-        self.train = train.drop('SalePrice', axis=1)
+        self.y_train = train['price'].apply(lambda x: np.log1p(x))
+        self.train = train.drop('price', axis=1)
         self.test = test
 
         # concatinating the whole data
@@ -41,6 +42,7 @@ class HouseObjectOriented:
 
     def concat_data(self, train, test):
         data = pd.concat([self.train.set_index('Id'), self.test.set_index('Id')]).reset_index(drop=True)
+
 
         return data
 
