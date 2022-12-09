@@ -1,10 +1,15 @@
-class Pre_processing:
+from imports import *
+
+
+class PreProcessing:
     """
-    This class prepares the data berfore applying ML
+    This class prepares the data before applying ML
     """
 
     def __init__(self):
 
+        self.year = None
+        self.df = None
         print()
         print('pre-processing object is created')
         print()
@@ -173,4 +178,13 @@ class Pre_processing:
         # Normalize our numeric data
         self.data[columns] = self.data[columns].apply(lambda x: np.log1p(x))  # Normalize the data with Logarithms
 
-        return self.data  
+        return self.data
+
+    def conv(self, df, year):
+        """
+        Function to convert number of sales to percentage in a year
+        :param year: year column name
+        :param df:  dataframe
+        :return: price range with count of sales
+        """
+        return df[df['year_of_sale'] == year].groupby('price_range').size()

@@ -1,12 +1,12 @@
 from dataloader import loader
-from dataloader.loader import Pre_processing
+from dataloader.loader import PreProcessing
 
 
 class Preprocessor:
 
     def __init__(self):
         self.data = None
-        self._preprocessor = Pre_processing()
+        self._preprocessor = PreProcessing()
 
     def _process(self, data, ntrain):
         self.data = data

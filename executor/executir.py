@@ -1,6 +1,6 @@
 from imports import *
 from info.info import Information
-from dataloader.loader import Pre_processing
+from dataloader.loader import PreProcessing
 from processor.processor import Preprocessor
 from model.model import ML
 
