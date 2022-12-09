@@ -12,6 +12,8 @@ import plotly.express as px
 from plotly.offline import iplot, init_notebook_mode
 import cufflinks as cf
 import matplotlib.pyplot as plt
+import seaborn as sns
+
 
 #machine learning libraries:
 from sklearn.svm import SVR
